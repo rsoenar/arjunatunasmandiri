@@ -27,7 +27,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="{{ url('dashboard') }}"
+                <a href="/dashboard" wire:navigate
                     class="nav-link {{ Request::segment(1) === 'dashboard' ? 'active' : null }}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -36,8 +36,10 @@
                 </a>
             </li>
             <li class="nav-header">MASTER DATA</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li
+                class="nav-item {{ Request::segment(1) === 'master-biaya' || Request::segment(1) === 'master-kendaraan' ? 'menu-is-opening menu-open active' : null }}">
+                <a href="#"
+                    class="nav-link {{ Request::segment(1) === 'master-biaya' || Request::segment(1) === 'master-kendaraan' ? 'menu-is-opening menu-open active' : null }}">
                     <i class="nav-icon fa fa-database"></i>
                     <p>
                         Kelola Data Master
@@ -70,7 +72,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url('master-biaya') }}"
+                            class="nav-link {{ Request::segment(1) === 'master-biaya' ? 'active' : null }}">
                             <i class="fa fa-credit-card nav-icon"></i>
                             <p>Master Biaya</p>
                         </a>
