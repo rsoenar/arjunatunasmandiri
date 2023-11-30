@@ -7,7 +7,7 @@
     <title>PT Arjuna Tunas Mandiri | Home</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href={{ URL::asset('dist/css/fontface.css') }}>
     <!-- Font Awesome -->
     <link rel="stylesheet" href={{ URL::asset('plugins/fontawesome-free/css/all.min.css') }}>
     <!-- Theme style -->
