@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cost_type extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nama'];
+
+    protected $table = "cost_types";
+
+    public $timestamps = true;
 }
