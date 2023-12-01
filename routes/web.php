@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CostController;
+use App\Http\Controllers\Cost;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +22,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/master-biaya', [CostController::class, 'index']);
+Route::get('/master-biaya', [Cost::class, 'index']);
