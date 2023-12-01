@@ -23,9 +23,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    @livewire('cost-types.data-cost')
+                    @livewire('cost-type')
                 </div>
             </div>
         </div>
     </section>
+
+  
 @endsection
