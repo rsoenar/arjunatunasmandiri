@@ -3,7 +3,7 @@
         <div class="card-header col card-header text-left">
             <div class="row align-items-right">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-biaya">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-order">
                         Tambah Data
                     </button>
                 </div>
@@ -20,18 +20,18 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Nama Biaya</th>
+                        <th>Nama Jenis Order</th>
                         <th style="width: 40px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($costs as $cost)
+                    @forelse ($orders as $order)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $cost->nama }}</td>
+                            <td>{{ $order->nama }}</td>
                             <td style="width:1px; white-space:nowrap;">
                                 <a role="button" class="btn btn-danger btn-xs" href="javascript:void(0)"
-                                    wire:click.prevent='DeleteConfirmation({{ $cost->id }})'>Delete</a>
+                                    wire:click.prevent='DeleteConfirmation({{ $order->id }})'>Delete</a>
                             </td>
                         </tr>
                     @empty
@@ -45,16 +45,17 @@
         <!-- /.card-body -->
         <div class="card-footer clearfix">
             <ul class="pagination pagination-sm m-0 float-right">
-                {{ $costs->links() }}
+                {{ $orders->links() }}
             </ul>
         </div>
     </div>
-    <x-cost-modal />
+    <x-order-modal />
 </div>
 
 @push('script')
     <script>
         Livewire.on('show-delete-confirm', data => {
+
             Swal.fire({
                 title: "Anda yakin?",
                 text: "Data tidak dapat dikembalikan",
@@ -74,7 +75,7 @@
 
 @push('script')
     <script>
-        Livewire.on('CostDeleted', data => {
+        Livewire.on('OrderDeleted', data => {
             Swal.fire({
                 title: "Deleted!",
                 text: "Data anda berhasil didelete",

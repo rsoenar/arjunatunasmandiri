@@ -4,9 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Cost_type;
+use App\Models\Order_type;
 
-class CostType extends Component
+class OrderType extends Component
 {
     use WithPagination;
 
@@ -18,7 +18,7 @@ class CostType extends Component
 
     public $delete_id;
 
-    public $listeners=['DeleteConfirmed' => 'DeleteBiaya'];
+    public $listeners=['DeleteConfirmed' => 'DeleteOrder'];
 
     protected $rules = [
         'nama' => 'required|min:3|max:50',
@@ -30,7 +30,7 @@ class CostType extends Component
     ];
 
     protected $validationAttributes = [
-        'nama' => 'nama biaya'
+        'nama' => 'nama order'
     ];
 
     public function updatingSearch()
@@ -40,13 +40,9 @@ class CostType extends Component
 
     public function render()
     {
-
-        return view(
-            'livewire.cost-type',
-            [
-                'costs' => Cost_type::where('nama', 'like', '%'.$this->search.'%')->paginate(5),
-            ]
-        );
+        return view('livewire.order-type',[
+                'orders' => Order_type::where('nama', 'like', '%'.$this->search.'%')->paginate(5),
+            ]);
     }
 
     public function updated($fields)
@@ -62,7 +58,7 @@ class CostType extends Component
     public function store()
     {
         $validatedData = $this->validate();
-        Cost_type::create($validatedData);
+        Order_type::create($validatedData);
         $this->emit('success',['pesan'=>'Berhasil menyimpan data']);
         self::ResetInput();
         $this->dispatchBrowserEvent('close-modal');
@@ -74,11 +70,11 @@ class CostType extends Component
        $this->emit('show-delete-confirm');
     }
 
-    public function DeleteBiaya()
+    public function DeleteOrder()
     {
-        $cost=Cost_type::where('id',$this->delete_id)->first();
-        $cost->delete();
+        $order=Order_type::where('id',$this->delete_id)->first();
+        $order->delete();
 
-        $this->emit('CostDeleted',['pesan'=>'Berhasil menghapus data']);
+        $this->emit('OrderDeleted',['pesan'=>'Berhasil menghapus data']);
     }
 }

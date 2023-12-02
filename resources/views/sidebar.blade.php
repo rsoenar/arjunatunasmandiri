@@ -36,10 +36,9 @@
                 </a>
             </li>
             <li class="nav-header">MASTER DATA</li>
-            <li
-                class="nav-item {{ Request::segment(1) === 'master-biaya' || Request::segment(1) === 'master-kendaraan' ? 'menu-is-opening menu-open active' : null }}">
+            <li class="nav-item {{ Request::segment(1) === 'master' ? 'menu-is-opening menu-open active' : null }}">
                 <a href="#"
-                    class="nav-link {{ Request::segment(1) === 'master-biaya' || Request::segment(1) === 'master-kendaraan' ? 'menu-is-opening menu-open active' : null }}">
+                    class="nav-link {{ Request::segment(1) === 'master' ? 'menu-is-opening menu-open active' : null }}">
                     <i class="nav-icon fa fa-database"></i>
                     <p>
                         Kelola Data Master
@@ -49,44 +48,83 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa fa-car nav-icon"></i>
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Kendaraan</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa fa-user nav-icon"></i>
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Supir</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa fa-cog nav-icon"></i>
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Service</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa fa-users nav-icon"></i>
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Customer</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('master-biaya') }}"
-                            class="nav-link {{ Request::segment(1) === 'master-biaya' ? 'active' : null }}">
-                            <i class="fa fa-credit-card nav-icon"></i>
+                        <a href="{{ route('master-biaya') }}"
+                            class="nav-link {{ Request::segment(2) === 'master-biaya' ? 'active' : null }}"
+                            wire:navigate>
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Biaya</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fa fa-shopping-bag nav-icon"></i>
+                        <a href="{{ route('master-order') }}"
+                            class="nav-link {{ Request::segment(2) === 'master-order' ? 'active' : null }}">
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Master Order</p>
                         </a>
                     </li>
                 </ul>
             </li>
+            <li class="nav-header">TRANSAKSI</li>
+            <li class="nav-item {{ Request::segment(1) === 'transaksi' ? 'menu-is-opening menu-open active' : null }}">
+                <a href="#"
+                    class="nav-link {{ Request::segment(1) === 'transaksi' ? 'menu-is-opening menu-open active' : null }}">
+                    <i class="nav-icon fa fa-credit-card"></i>
+                    <p>
+                        Transaksi
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Service</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Biaya Pajak (STNK)</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Biaya Operasional</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Order</p>
+                        </a>
+                    </li>
 
+                </ul>
+            </li>
             <li class="nav-header">REPORTING</li>
             <li class="nav-item">
                 <a href="../calendar.html" class="nav-link">

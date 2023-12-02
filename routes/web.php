@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Cost;
+use App\Http\Controllers\Cost_type;
+use App\Http\Controllers\Order_type;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,5 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/master-biaya', [Cost::class, 'index']);
+Route::get('master/master-biaya', [Cost_type::class, 'index'])->name('master-biaya');
+Route::get('master/master-order', [Order_type::class, 'index'])->name('master-order');

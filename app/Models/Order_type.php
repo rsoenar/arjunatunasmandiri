@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order_type extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['nama'];
+
+    protected $table = "order_types";
+
+    public $timestamps = true;
 }
