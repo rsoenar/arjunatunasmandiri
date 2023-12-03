@@ -23,5 +23,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/master/pelanggan',function(){
+    return view('customer');
+});
+
+Route::get('/master/supir',function(){
+    return view('driver');
+});
+
 Route::get('master/master-biaya', [Cost_type::class, 'index'])->name('master-biaya');
 Route::get('master/master-order', [Order_type::class, 'index'])->name('master-order');

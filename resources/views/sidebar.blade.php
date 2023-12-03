@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar ">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -22,7 +22,7 @@
     </div>
 
     <!-- Sidebar Menu -->
-    <nav class="mt-2">
+    <nav class="mt-2 sidebar-dark-teal">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -53,21 +53,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url('/master/supir') }}"
+                            class="nav-link {{ Request::segment(2) === 'supir' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Supir</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url('/master/pelanggan') }}"
+                            class="nav-link {{ Request::segment(2) === 'pelanggan' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Master Service</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Master Customer</p>
+                            <p>Master Pelanggan</p>
                         </a>
                     </li>
                     <li class="nav-item">

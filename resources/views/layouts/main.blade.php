@@ -10,6 +10,8 @@
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
     <!-- Offline fontface poppins-->
     <link rel="stylesheet" href={{ URL::asset('dist/css/fontface.css') }}>
+    <!-- Optional CSS table for customer page-->
+    <link rel="stylesheet" href={{ URL::asset('dist/css/table-cus.css') }}>
     <!-- Font Awesome -->
     <link rel="stylesheet" href={{ URL::asset('plugins/fontawesome-free/css/all.min.css') }}>
     <!-- Theme style -->
@@ -21,7 +23,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini ">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -119,6 +121,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
+
             @livewireStyles
 
             @livewireScripts
@@ -126,6 +129,7 @@
             @yield('main-content')
 
             @stack('script')
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -151,7 +155,6 @@
     <script src={{ URL::asset('plugins/jquery-ui/jquery-ui.min.js') }}></script>
     <!-- SweetAlert2 -->
     <script src={{ URL::asset('plugins/sweetalert2/sweetalert2.min.js') }}></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Toastr -->
     <script src={{ URL::asset('plugins/toastr/toastr.min.js') }}></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

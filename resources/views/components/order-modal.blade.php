@@ -9,7 +9,6 @@
                 </button>
             </div>
             <form wire:submit.prevent="store" id='form-modal-order'>
-                {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -22,10 +21,10 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="submit" id="store" class="btn btn-primary" wire:click="store">Simpan</button>
-                </div>
             </form>
+            <div class="modal-footer justify-content-between">
+                <button type="submit" id="store" class="btn btn-primary" wire:click="store">Simpan</button>
+            </div>
         </div>
     </div>
 </div>
