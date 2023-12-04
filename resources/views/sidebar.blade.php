@@ -47,7 +47,8 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ url('/master/kendaraan') }}"
+                            class="nav-link {{ Request::segment(2) === 'kendaraan' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Kendaraan</p>
                         </a>
