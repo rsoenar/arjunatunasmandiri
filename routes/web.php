@@ -23,17 +23,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/master/pelanggan', function () {
-    return view('customer');
+Route::group(['prefix' => 'master/'], function () {
+    Route::get('pelanggan', function ()    {
+         return view('customer');
+    });
+    Route::get('supir', function () {
+        return view('driver');
+    });
+    Route::get('kendaraan', function () {
+        return view('car');
+    });
+    Route::get('master-biaya', [Cost_type::class, 'index'])->name('master-biaya');
+    Route::get('master-order', [Order_type::class, 'index'])->name('master-order');
 });
 
-Route::get('/master/supir', function () {
-    return view('driver');
+Route::group(['prefix' => 'master/kendaraan/'],function(){
+    Route::get('input',function(){
+        return view('car-input');
+    })->name('car-input');
 });
-
-Route::get('/master/kendaraan', function () {
-    return view('car');
-});
-
-Route::get('master/master-biaya', [Cost_type::class, 'index'])->name('master-biaya');
-Route::get('master/master-order', [Order_type::class, 'index'])->name('master-order');
