@@ -18,7 +18,7 @@ class CostType extends Component
 
     public $delete_id;
 
-    public $listeners=['DeleteConfirmed' => 'DeleteBiaya'];
+    public $listeners = ['DeleteConfirmed' => 'DeleteBiaya'];
 
     protected $rules = [
         'nama' => 'required|min:3|max:50',
@@ -44,7 +44,7 @@ class CostType extends Component
         return view(
             'livewire.cost-type',
             [
-                'costs' => Cost_type::where('nama', 'like', '%'.$this->search.'%')->paginate(5),
+                'costs' => Cost_type::where('nama', 'like', '%' . $this->search . '%')->paginate(5),
             ]
         );
     }
@@ -63,22 +63,22 @@ class CostType extends Component
     {
         $validatedData = $this->validate();
         Cost_type::create($validatedData);
-        $this->emit('success',['pesan'=>'Berhasil menyimpan data']);
+        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
         self::ResetInput();
         $this->dispatchBrowserEvent('close-modal');
     }
 
     public function DeleteConfirmation($id)
     {
-       $this->delete_id=$id;
-       $this->emit('show-delete-confirm');
+        $this->delete_id = $id;
+        $this->emit('show-delete-confirm');
     }
 
     public function DeleteBiaya()
     {
-        $cost=Cost_type::where('id',$this->delete_id)->first();
+        $cost = Cost_type::where('id', $this->delete_id)->first();
         $cost->delete();
 
-        $this->emit('CostDeleted',['pesan'=>'Berhasil menghapus data']);
+        $this->emit('CostDeleted', ['pesan' => 'Berhasil menghapus data']);
     }
 }

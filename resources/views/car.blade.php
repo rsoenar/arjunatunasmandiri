@@ -16,7 +16,9 @@
                 </div>
             </div>
         </div>
+        <hr class="hr" />
     </section>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">

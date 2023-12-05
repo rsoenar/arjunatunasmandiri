@@ -1,16 +1,27 @@
 <div>
     <div class="card">
         <div class="card-header col card-header text-left">
-            <div class="row align-items-right">
-                <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6 col-xl-6">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-biaya">
                         Tambah Data
                     </button>
                 </div>
-                <div class="col-md-3 offset-md-6"><label class="text-right g-col-6">
-                        <input type="search" class="form-control form-control-md " wire:model="search"
-                            placeholder="Search">
-                    </label>
+                <div class="col-md-6 col-xl-6 d-flex justify-content-end">
+                    <div class="row gap-0">
+                        <div class="col-xl-7 col-md-7">
+                            <input type="search" class="form-control form-control-md" wire:model="search"
+                                placeholder="Search">
+                        </div>
+                        <div class="col-xl-5 col-md-5">
+                            <select class="form-control">
+                                <option value="1">asfasf</option>
+                                <option value="1">sdfs</option>
+                                <option value="1">fsdafs</option>
+                                <option value="1">fsdf</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

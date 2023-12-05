@@ -16,14 +16,14 @@
                 </div>
             </div>
         </div>
+        <hr class="hr mt-2" />
     </section>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    {{-- @livewire('car') --}}
-                    @livewire('car-input-form');
+                    <x-car-input-form />
                 </div>
             </div>
         </div>

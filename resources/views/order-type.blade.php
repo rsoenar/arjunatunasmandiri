@@ -16,6 +16,7 @@
                 </div>
             </div>
         </div>
+         <hr class="hr mt-2" />
     </section>
 
     <!-- Main content -->
