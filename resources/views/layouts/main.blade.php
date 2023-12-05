@@ -20,6 +20,9 @@
     <link rel="stylesheet" href={{ URL::asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}>
     <!-- Toastr -->
     <link rel="stylesheet" href={{ URL::asset('plugins/toastr/toastr.min.css') }}>
+
+    <link rel="stylesheet" href={{ URL::asset('dist/datepicker/jquery.datetimepicker.css') }} />
+
 </head>
 
 <body class="hold-transition sidebar-mini ">
@@ -157,8 +160,17 @@
     <!-- Toastr -->
     <script src={{ URL::asset('plugins/toastr/toastr.min.js') }}></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src={{ URL::asset('dist/datepicker/jquery.datetimepicker.full.min.js') }}></script>
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        // $.widget.bridge('uibutton', $.ui.button)
+        // picker on car input form
+        jQuery('#picker-tanggal-pajak').datetimepicker({
+            format: 'Y-m-d',
+            formatDate: 'Y-m-d',
+            autoclose: true
+        }).on('change', function() {
+            $('#picker-tanggal-pajak').datetimepicker('hide');
+        });;
     </script>
 </body>
 

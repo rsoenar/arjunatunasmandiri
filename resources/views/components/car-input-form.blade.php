@@ -127,15 +127,16 @@
                 </div>
                 <div class="form-group row ml-1 mb-1">
                     <label class="col-sm-3 col-form-label">Tanggal Pajak</label>
-                    <div class="col-xl-3 col-md-3">
+                    <div class="col-xl-4 col-md-3">
                         <div class="input-group mb-3 ml-6">
                             <div class="input-group-prepend">
                                 <span class="input-group-text "><i class="fa fa-calendar-week"></i></span>
                             </div>
-                            <input type="text" class="form-control datetimepicker-input"
-                                data-target="#datetimepicker" />
+                            <input id="picker-tanggal-pajak" type="text" class="form-control col date"
+                                placeholder="Tanggal jatuh tempo pajak sesuai STNK">
                         </div>
                     </div>
+
                 </div>
                 <div class="form-group row ml-1 mb-1">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal STNK</label>
