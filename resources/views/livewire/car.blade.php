@@ -150,69 +150,6 @@
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-danger text-lg">
-                            Booking
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-danger text-lg">
-                            Booking
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-danger text-lg">
-                            Booking
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
         </div>
         {{-- end card body --}}
     </div>

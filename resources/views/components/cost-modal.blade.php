@@ -14,18 +14,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
                         </div>
-                        <input type="text" wire:model.debounce.500ms="nama" class="form-control"
-                            placeholder="Nama Biaya">
+                        <input type="text" wire:model.debounce.500ms="nama"
+                            class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Biaya">
+                        @error('nama')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('nama')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+
                 </div>
             </form>
             <div class="modal-footer justify-content-between">
                 <button type="submit" id="store" class="btn btn-primary" wire:click="store">Simpan</button>
             </div>
-
         </div>
     </div>
 </div>

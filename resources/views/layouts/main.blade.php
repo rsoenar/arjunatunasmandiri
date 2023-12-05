@@ -161,6 +161,8 @@
     <script src={{ URL::asset('plugins/toastr/toastr.min.js') }}></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script src={{ URL::asset('dist/datepicker/jquery.datetimepicker.full.min.js') }}></script>
+    <!-- bs-custom-file-input -->
+    <script src={{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}></script>
     <script>
         // $.widget.bridge('uibutton', $.ui.button)
         // picker on car input form
@@ -170,7 +172,13 @@
             autoclose: true
         }).on('change', function() {
             $('#picker-tanggal-pajak').datetimepicker('hide');
-        });;
+        });
+    </script>
+    <script>
+        // $.widget.bridge('uibutton', $.ui.button)
+        $(function() {
+            bsCustomFileInput.init();
+        })
     </script>
 </body>
 

@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <x-car-input-form />
+                    @livewire('car-input')
                 </div>
             </div>
         </div>

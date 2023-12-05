@@ -10,4 +10,5 @@ class Car extends Component
     {
         return view('livewire.car');
     }
+
 }

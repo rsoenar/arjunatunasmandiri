@@ -3,7 +3,7 @@
         <div class="card-header col card-header text-left">
             <div class="row">
                 <div class="col-md-6 col-xl-6">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-biaya">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-order">
                         Tambah Data
                     </button>
                 </div>
