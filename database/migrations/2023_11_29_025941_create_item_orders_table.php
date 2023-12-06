@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('item_orders', function (Blueprint $table) {
-            $table->string('id-order', 6)->comment('FK kode biaya operasional');
-            $table->unsignedBigInteger('id-order-types')->comment('FK kode type order')->nullable();
+            $table->string('id-order', 6)->comment('FK Head Order');
+            $table->unsignedBigInteger('id-kendaraan')->comment('FK kode cars')->nullable(false);
             $table->dateTime('tanggal-mulai')->comment('Tanggal mulai order')->nullable(false)->default(now());
             $table->dateTime('tanggal-akhir')->comment('Tanggal akhir order')->nullable(false)->default(now());
             $table->unsignedBigInteger('id-sopir')->comment('FK Sopir  dari table Drivers')->nullable()->default(1);
@@ -33,9 +33,9 @@ return new class extends Migration
 
             // $table->integer('id-order-types')->unsignedBigInteger();
 
-            $table->foreign('id-order-types')
+            $table->foreign('id-kendaraan')
                 ->references('id')
-                ->on('order_types')
+                ->on('cars')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

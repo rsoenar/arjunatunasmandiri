@@ -10,4 +10,7 @@ class Car extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $table = "Cars";
+
+    public $timestamps = true;
 }

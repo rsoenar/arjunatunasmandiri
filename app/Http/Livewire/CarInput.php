@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Car;
 
 class CarInput extends Component
 {
@@ -52,6 +53,10 @@ class CarInput extends Component
 
     public function store()
     {
-        $this->validate();
+        $validatedData = $this->validate();
+        Car::create($validatedData);
+        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
+        self::ResetInput();
+        return redirect()->route('car');
     }
 }
