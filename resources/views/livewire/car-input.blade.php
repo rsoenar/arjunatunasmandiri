@@ -175,9 +175,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-calendar-week"></i></span>
                                 </div>
-                                <input id="picker-tanggal-pajak" type="text" wire:model='tglPajak'
+                                <input id="picker-pajak" type="text" wire:model='tglPajak'
                                     class="form-control col date @error('tglPajak') is-invalid @enderror"
-                                    placeholder="Tanggal Pajak STNK">
+                                    placeholder="Tanggal Pajak STNK" onchange="Livewire.emit('setDate',this.value)">
                                 @error('tglPajak')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -196,7 +196,8 @@
                                 </div>
                                 <input id="picker-tanggal-stnk" type="text"
                                     wire:model='tglStnk'class="form-control col date @error('tglStnk') is-invalid @enderror"
-                                    placeholder="Tanggal jatuh tempo STNK">
+                                    placeholder="Tanggal jatuh tempo STNK"
+                                    onchange="Livewire.emit('setDate',this.value)">
                                 @error('tglStnk')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -230,21 +231,29 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-file"></i></span>
                                 </div>
-                                <textarea class="form-control" wire:model='keterangan' rows="2" placeholder="Keterangan"></textarea>
+                                <textarea class="form-control" wire:model.defer='keterangan' rows="2" placeholder="Keterangan"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Photo Kendaraan</label>
+                        <label class="col-sm-3 col-form-label">Photo Kendaraan</label>
                         <div class="col-xl-8 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-image"></i></span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" wire:model='photo' class="custom-file-input">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                    <input type="file" wire:model='photo' class="form-control">
+                                    {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
                                 </div>
+                                @if ($photo)
+                                    <img class="img-fluid img-thumbnail rounded" src="{{ $photo->temporaryURL() }}"
+                                        alt="">
+                                @endif
+                                <div class="rounded">
+
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -4,12 +4,16 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Car;
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Rule;
 
 class CarInput extends Component
 {
-    public $nama, $merk, $warna, $jenis, $nopol, $norangka;
-    public $nomesin, $bbm, $tahunprod, $tglPajak, $tglStnk;
-    public $owner, $keterangan, $photo;
+    use WithFileUploads;
+
+    public $nama, $merk, $warna, $jenis, $nopol, $norangka, $nomesin, $bbm, $tahunprod, $tglPajak, $tglStnk, $owner, $keterangan, $photo;
+
+    protected $listeners = ['setDatePajak','setDateStnk'];
 
     protected $rules = [
         'nama' => 'required',
@@ -39,6 +43,7 @@ class CarInput extends Component
         'tglPajak' => 'tanggal pajak jatuh tempo',
         'tglStnk' => 'tanggal STNK',
         'owner' => 'nama pemilik',
+        'photo' => 'photo kendaraan'
     ];
 
     public function updated($fields)
@@ -51,12 +56,28 @@ class CarInput extends Component
         return view('livewire.car-input');
     }
 
+    public function setDatePajak($data){
+        $this->tglPajak=$data;
+    }
+
+    public function setDateStnk($data){
+        $this->tglStnk=$data;
+    }
+
     public function store()
     {
-        $validatedData = $this->validate();
-        Car::create($validatedData);
-        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
-        self::ResetInput();
-        return redirect()->route('car');
+        $validated = $this->validate();
+        dd($this->nama,$this->tglStnk);
+        // $this->validate([
+        //     'photo.*' => 'image|max:1024|mimes:png,jpg',
+        // ]);
+
+        // if($this->photo){
+        //     $this->photo->store('images-car');
+        // }
+
+        // Car::create($validated);
+        // $this->reset('nama','merk');
+
     }
 }

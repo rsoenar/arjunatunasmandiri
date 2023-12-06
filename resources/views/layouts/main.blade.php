@@ -169,7 +169,6 @@
         jQuery('.date').datetimepicker({
             format: 'Y-m-d',
             formatDate: 'Y-m-d',
-            autoclose: true
         }).on('change', function() {
             $('.date').datetimepicker('hide');
         });
