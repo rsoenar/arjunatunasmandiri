@@ -9,17 +9,9 @@
                 </div>
                 <div class="col-md-6 col-xl-6 d-flex justify-content-end">
                     <div class="row gap-0">
-                        <div class="col-xl-7 col-md-7">
+                        <div class="col-xl-12 col-md-7">
                             <input type="search" class="form-control form-control-md" wire:model="search"
                                 placeholder="Search">
-                        </div>
-                        <div class="col-xl-5 col-md-5">
-                            <select class="form-control">
-                                <option value="1">asfasf</option>
-                                <option value="1">sdfs</option>
-                                <option value="1">fsdafs</option>
-                                <option value="1">fsdf</option>
-                            </select>
                         </div>
                     </div>
                 </div>

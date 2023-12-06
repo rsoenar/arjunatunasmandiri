@@ -18,16 +18,16 @@ class OrderType extends Component
 
     public $delete_id;
 
-    public $listeners=['DeleteConfirmed' => 'DeleteOrder'];
+    public $listeners = ['DeleteConfirmed' => 'DeleteOrder'];
 
     protected $rules = [
         'nama' => 'required|min:3|max:50',
     ];
 
-    protected $messages = [
-        'nama.required' => 'Nama harus diisi.',
-        'nama.min' => 'Minimal character Nama 6',
-    ];
+    // protected $messages = [
+    //     'nama.required' => 'Nama harus diisi.',
+    //     'nama.min' => 'Minimal character Nama 6',
+    // ];
 
     protected $validationAttributes = [
         'nama' => 'nama order'
@@ -40,9 +40,9 @@ class OrderType extends Component
 
     public function render()
     {
-        return view('livewire.order-type',[
-                'orders' => Order_type::where('nama', 'like', '%'.$this->search.'%')->paginate(5),
-            ]);
+        return view('livewire.order-type', [
+            'orders' => Order_type::where('nama', 'like', '%' . $this->search . '%')->paginate(5),
+        ]);
     }
 
     public function updated($fields)
@@ -59,22 +59,22 @@ class OrderType extends Component
     {
         $validatedData = $this->validate();
         Order_type::create($validatedData);
-        $this->emit('success',['pesan'=>'Berhasil menyimpan data']);
+        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
         self::ResetInput();
         $this->dispatchBrowserEvent('close-modal');
     }
 
     public function DeleteConfirmation($id)
     {
-       $this->delete_id=$id;
-       $this->emit('show-delete-confirm');
+        $this->delete_id = $id;
+        $this->emit('show-delete-confirm');
     }
 
     public function DeleteOrder()
     {
-        $order=Order_type::where('id',$this->delete_id)->first();
+        $order = Order_type::where('id', $this->delete_id)->first();
         $order->delete();
 
-        $this->emit('OrderDeleted',['pesan'=>'Berhasil menghapus data']);
+        $this->emit('OrderDeleted', ['pesan' => 'Berhasil menghapus data']);
     }
 }

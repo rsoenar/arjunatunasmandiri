@@ -24,10 +24,10 @@ class CostType extends Component
         'nama' => 'required|min:3|max:50',
     ];
 
-    protected $messages = [
-        'nama.required' => 'Nama harus diisi.',
-        'nama.min' => 'Minimal character Nama 6',
-    ];
+    // protected $messages = [
+    //     'nama.required' => 'Nama harus diisi.',
+    //     'nama.min' => 'Minimal character Nama 6',
+    // ];
 
     protected $validationAttributes = [
         'nama' => 'nama biaya'

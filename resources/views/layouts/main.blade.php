@@ -166,12 +166,12 @@
     <script>
         // $.widget.bridge('uibutton', $.ui.button)
         // picker on car input form
-        jQuery('#picker-tanggal-pajak').datetimepicker({
+        jQuery('.date').datetimepicker({
             format: 'Y-m-d',
             formatDate: 'Y-m-d',
             autoclose: true
         }).on('change', function() {
-            $('#picker-tanggal-pajak').datetimepicker('hide');
+            $('.date').datetimepicker('hide');
         });
     </script>
     <script>

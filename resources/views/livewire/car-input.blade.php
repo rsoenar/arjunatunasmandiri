@@ -35,8 +35,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-copyright"></i></span>
                                 </div>
-                                <input type="text" wire:model='merk' class="form-control col"
+                                <input type="text" wire:model='merk'
+                                    class="form-control col @error('merk') is-invalid @enderror"
                                     placeholder="Merk Kendaraan">
+                                @error('merk')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -63,8 +69,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-brush"></i></span>
                                 </div>
-                                <input type="text" wire:model='warna' class="form-control col"
+                                <input type="text" wire:model='warna'
+                                    class="form-control col @error('warna') is-invalid @enderror"
                                     placeholder="Warna kendaraan sesuai STNK">
+                                @error('warna')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -75,8 +87,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-hashtag"></i></span>
                                 </div>
-                                <input type="text" wire:model='nopol' class="form-control col"
+                                <input type="text" wire:model='nopol'
+                                    class="form-control col @error('nopol') is-invalid @enderror"
                                     placeholder="Nomor Polisi">
+                                @error('nopol')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -87,8 +105,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-fingerprint"></i></span>
                                 </div>
-                                <input type="text" wire:model='norangka' class="form-control col"
+                                <input type="text" wire:model='norangka'
+                                    class="form-control col @error('norangka') is-invalid @enderror"
                                     placeholder="Nomor Rangka">
+                                @error('norangka')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -99,8 +123,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-car-battery"></i></span>
                                 </div>
-                                <input type="text" wire:model='nomesin' class="form-control col"
+                                <input type="text" wire:model='nomesin'
+                                    class="form-control col @error('nomesin') is-invalid @enderror"
                                     placeholder="Nomor Mesin">
+                                @error('nomesin')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -146,7 +176,13 @@
                                     <span class="input-group-text "><i class="fa fa-calendar-week"></i></span>
                                 </div>
                                 <input id="picker-tanggal-pajak" type="text" wire:model='tglPajak'
-                                    class="form-control col date" placeholder="Tanggal Pajak STNK">
+                                    class="form-control col date @error('tglPajak') is-invalid @enderror"
+                                    placeholder="Tanggal Pajak STNK">
+                                @error('tglPajak')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -159,8 +195,13 @@
                                     <span class="input-group-text "><i class="fa fa-calendar-day"></i></span>
                                 </div>
                                 <input id="picker-tanggal-stnk" type="text"
-                                    wire:model='tglStnk'class="form-control col date"
+                                    wire:model='tglStnk'class="form-control col date @error('tglStnk') is-invalid @enderror"
                                     placeholder="Tanggal jatuh tempo STNK">
+                                @error('tglStnk')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -171,8 +212,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" wire:model='owner' class="form-control col"
+                                <input type="text" wire:model='owner'
+                                    class="form-control col @error('tglStnk') is-invalid @enderror"
                                     placeholder="Nama pemilik">
+                                @error('owner')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
