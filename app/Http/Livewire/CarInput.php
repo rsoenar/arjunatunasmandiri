@@ -71,6 +71,7 @@ class CarInput extends Component
 
     public function store()
     {
+
         $data = [
             'nama' => $this->nama,
             'merk' => $this->merk,
@@ -84,11 +85,13 @@ class CarInput extends Component
             'tanggal_pajak' => $this->tanggal_pajak,
             'tanggal_stnk' => $this->tanggal_stnk,
             'pemilik' => $this->pemilik,
-            'photo' => $this->photo->hashName(),
+            'photo' => $this->photo ? $this->photo->hashName() : $this->photo=''
         ];
+
         if (!empty($this->photo)) {
-            $this->photo->storeAs('public/images-car');
+            $this->photo->store('images-car','public');
         }
+
         $validated = $this->validate();
         Car::create($data);
         // $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');

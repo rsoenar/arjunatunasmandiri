@@ -254,9 +254,7 @@
                                 Loading...
                             </div>
                             <div class="row">
-                                <div="col-xl-2">
                                 @if ($photo)
-                                    <h7>Preview</h7>
                                     <hr class="hr" />
                                     <img class="img-thumbnail" style="width: 164px; height: 164px; margin:auto;"
                                         src="{{ $photo->temporaryURL() }}" alt="">
@@ -281,14 +279,8 @@
                 "closeButton": false,
                 "debug": false,
                 "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-bottom-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
+                "progressBar": false,
+                "positionClass": "toast-top-right",
                 "showEasing": "swing",
                 "hideEasing": "linear",
                 "showMethod": "fadeIn",

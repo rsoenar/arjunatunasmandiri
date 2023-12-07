@@ -134,11 +134,12 @@
 
             <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
 
         <!-- footer -->
         @include('footer')
         <!-- end footer -->
+
+        <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

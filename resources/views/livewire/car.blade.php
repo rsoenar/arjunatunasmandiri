@@ -28,8 +28,8 @@
         {{-- car body --}}
         <div class="row pt-4 mr-2 ml-2">
             @forelse($cars as $car)
-                <div class="col-xl-2 col-md-2 col-sm-2 gap-2">
-                    <div class="card" style="width: 18rem;">
+                <div class="d-grid col-xl-3 col-md-3 col-sm-3 gap-4">
+                    <div class="card" style="width: 16rem;">
                         <img class="card-img-top" src="{{ url('storage/images-car/' . $car->photo) }}"
                             alt="{{ $car->photo }}">
                         <div class="card-body">
@@ -45,7 +45,7 @@
                             <h5 class="card-title text-bold">{{ $car->nama }}</h5>
                             <p class="card-text">{{ $car->keterangan }}</p>
                         </div>
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="height: 1px;">
                             <tr>
                                 <th>Nama</th>
                                 <td>{{ $car->warna }}</td>
@@ -75,7 +75,6 @@
                                 <td>{{ $car->tahun_produksi }}</td>
                             </tr>
                         </table>
-                        <hr class="hr pt-0" />
                         <div class="card-body pt-0">
                             <a href="#" class="card-link btn btn-primary">Detail</a>
                             <a href="#" class="card-link btn btn-danger">Hapus</a>
