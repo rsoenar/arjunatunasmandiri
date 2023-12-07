@@ -14,12 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('head_orders', function (Blueprint $table) {
-            $table->string('id', 6)->primary()->unique()->nullable(false)->comment('Kode order');
+            $table->bigInteger('id')->autoIncrement()->nullable(false)->comment('Kode order');
             $table->dateTime('tanggal')->comment('Tanggal transaksi order')->nullable(false)->default(now());
-            $table->foreignId('id_customer')->constrained('customers')->onUpdate('CASCADE')->onDelete('CASCADE')->comment('Jenis order foregn id dari table customers')->nullable()->default(001);
+            $table->unsignedBigInteger('id_customer')->constrained('customers')->comment('foregn id dari table customers')->nullable()->default(1);
             $table->longText('keterangan')->comment('Keterangan')->nullable(false);
             $table->bigInteger('total_biaya')->comment('Total biaya order')->nullable(false)->default(0);
             $table->timestamps();
+        });
+        Schema::table('head_orders', function (Blueprint $table) {
+            $table->foreign('id_customer')
+                ->references('id')
+                ->on('customers')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

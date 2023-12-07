@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('item_orders', function (Blueprint $table) {
-            $table->string('id-order', 6)->comment('FK Head Order');
+            $table->bigInteger('id-order')->comment('FK Head Order');
             $table->unsignedBigInteger('id-kendaraan')->comment('FK kode cars')->nullable(false);
             $table->dateTime('tanggal-mulai')->comment('Tanggal mulai order')->nullable(false)->default(now());
             $table->dateTime('tanggal-akhir')->comment('Tanggal akhir order')->nullable(false)->default(now());
