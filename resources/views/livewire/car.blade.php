@@ -8,150 +8,93 @@
                 </div>
                 <div class="col-md-6 col-xl-6 d-flex justify-content-end">
                     <div class="row gap-0">
-                        <div class="col-xl-7 col-md-7">
+                        <div class="col-xl-12 col-md-12">
                             <input type="search" class="form-control form-control-md" wire:model="search"
                                 placeholder="Search">
                         </div>
-                        <div class="col-xl-5 col-md-5">
-                            <select class="form-control">
-                                <option value="1" selected>Status</option>
+                        {{-- <div class="col-xl-5 col-md-5">
+                            <select class="form-control" wire:model="status">
+                                <option value="1">Status</option>
                                 <option value="1">Terorder</option>
-                                <option value="1">Service</option>
-                                <option value="1">Tersedia</option>
+                                <option value="2">Service</option>
+                                <option value="3">Tersedia</option>
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
+
         {{-- car body --}}
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-success text-lg">
-                            Tersedia
+        <div class="row pt-4 mr-2 ml-2">
+            @forelse($cars as $car)
+                <div class="col-xl-2 col-md-2 col-sm-2 gap-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ url('img/not-found.png') }}" alt="{{ $car->photo }}">
+                        <div class="card-body">
+                            <div class="ribbon-wrapper ribbon-lg">
+                                @if ($car->status == 1)
+                                    <div class="ribbon bg-success text-lg">Tersedia</div>
+                                @elseif($car->status == 2)
+                                    <div class="ribbon bg-warning text-lg">Service</div>
+                                @else
+                                    <div class="ribbon bg-danger text-lg">Terorder</div>
+                                @endif
+                            </div>
+                            <h5 class="card-title text-bold">{{ $car->nama }}</h5>
+                            <p class="card-text">{{ $car->keterangan }}</p>
+                        </div>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Nama</th>
+                                <td>{{ $car->warna }}</td>
+                            </tr>
+                            <tr>
+                                <th>Transmisi</th>
+                                <td>{{ $car->transmisi }}</td>
+                            </tr>
+                            <tr>
+                                <th>Warna</th>
+                                <td>{{ $car->warna }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nomor Polisi</th>
+                                <td>{{ $car->no_pol }}</td>
+                            </tr>
+                            <tr>
+                                <th>Bahan Bakar</th>
+                                <td>{{ $car->bahan_bakar }}</td>
+                            </tr>
+                            <tr>
+                                <th>Owner</th>
+                                <td>{{ $car->pemilik }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tahun Produksi</th>
+                                <td>{{ $car->tahun_produksi }}</td>
+                            </tr>
+                        </table>
+                        <hr class="hr pt-0" />
+                        <div class="card-body pt-0">
+                            <a href="#" class="card-link btn btn-primary">Detail</a>
+                            <a href="#" class="card-link btn btn-danger">Hapus</a>
                         </div>
                     </div>
-                    <h5 class="card-title">Fortuner Diesel</h5>
-
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">D 1333 EW</li>
-                    <li class="list-group-item">2018</li>
-                    <li class="list-group-item">Manual Transmition</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+            @empty
+                <div class="col-xl-4 offset-xl-4 d-flex justify-content-center">
+                    <img src="{{ url('img/not-found.png') }}" style="width: 180px;height: 180px;"
+                        class="card-img-top pb-4">
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-warning text-lg">
-                            Service
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">D 1333 EW</li>
-                    <li class="list-group-item">2018</li>
-                    <li class="list-group-item">Manual Transmition</li>
-
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-warning text-lg">
-                            Service
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">D 1333 EW</li>
-                    <li class="list-group-item">2018</li>
-                    <li class="list-group-item">Manual Transmition</li>
-
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-warning text-lg">
-                            Service
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">D 1333 EW</li>
-                    <li class="list-group-item">2018</li>
-                    <li class="list-group-item">Manual Transmition</li>
-
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ URL::asset('images-car/fortuner.jpeg') }}" alt="Card image cap">
-                <div class="card-body">
-                    <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-warning text-lg">
-                            Service
-                        </div>
-                    </div>
-                    <h5 class="card-title">Card title</h5>
-
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">D 1333 EW</li>
-                    <li class="list-group-item">2018</li>
-                    <li class="list-group-item">Manual Transmition</li>
-
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
+            @endforelse
         </div>
-        {{-- end card body --}}
     </div>
+    <div class="card-footer clearfix">
+        <ul class="pagination pagination-sm m-0 float-right">
+            {{ $cars->links() }}
+        </ul>
+    </div>
+    {{-- end card body --}}
+</div>
 
 </div>

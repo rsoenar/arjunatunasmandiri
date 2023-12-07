@@ -11,7 +11,7 @@
                 <hr class="hr pb-3" />
                 <form wire:submit.prevent='store'>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Kendaraan</label>
+                        <label class="col-sm-3 col-form-label">Nama Kendaraan</label>
                         <div class="col-xl-5 col-md-6">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Merk Kendaraan</label>
+                        <label class="col-sm-3 col-form-label">Merk Kendaraan</label>
                         <div class="col-xl-6 col-md-6">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
@@ -47,13 +47,13 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Jenis Transmisi</label>
+                        <label class="col-sm-3 col-form-label">Jenis Transmisi</label>
                         <div class="col-xl-4 col-md-6">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-cog"></i></span>
                                 </div>
-                                <select class="form-control" wire:model='jenis'>
+                                <select class="form-control" wire:model='transmisi'>
                                     <option value="manual" selected>Transmisi</option>
                                     <option value="manual">Manual</option>
                                     <option value="automatic">Automatic</option>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Warna</label>
+                        <label class="col-sm-3 col-form-label">Warna</label>
                         <div class="col-xl-7 col-md-6 col-xs-6">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
@@ -81,16 +81,16 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Nomor Polisi</label>
+                        <label class="col-sm-3 col-form-label">Nomor Polisi</label>
                         <div class="col-xl-6 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-hashtag"></i></span>
                                 </div>
-                                <input type="text" wire:model='nopol'
-                                    class="form-control col @error('nopol') is-invalid @enderror"
+                                <input type="text" wire:model='no_pol'
+                                    class="form-control col @error('no_pol') is-invalid @enderror"
                                     placeholder="Nomor Polisi">
-                                @error('nopol')
+                                @error('no_pol')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -99,16 +99,16 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Nomor Rangka</label>
+                        <label class="col-sm-3 col-form-label">Nomor Rangka</label>
                         <div class="col-xl-6 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-fingerprint"></i></span>
                                 </div>
-                                <input type="text" wire:model='norangka'
-                                    class="form-control col @error('norangka') is-invalid @enderror"
+                                <input type="text" wire:model='no_rangka'
+                                    class="form-control col @error('no_rangka') is-invalid @enderror"
                                     placeholder="Nomor Rangka">
-                                @error('norangka')
+                                @error('no_rangka')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -117,16 +117,16 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Nomor Mesin</label>
+                        <label class="col-sm-3 col-form-label">Nomor Mesin</label>
                         <div class="col-xl-6 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-car-battery"></i></span>
                                 </div>
-                                <input type="text" wire:model='nomesin'
-                                    class="form-control col @error('nomesin') is-invalid @enderror"
+                                <input type="text" wire:model='no_mesin'
+                                    class="form-control col @error('no_mesin') is-invalid @enderror"
                                     placeholder="Nomor Mesin">
-                                @error('nomesin')
+                                @error('no_mesin')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -135,13 +135,13 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Bahan Bakar</label>
+                        <label class="col-sm-3 col-form-label">Bahan Bakar</label>
                         <div class="col-xl-4 col-md-6">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-oil-can"></i></span>
                                 </div>
-                                <select class="form-control" wire:model='bbm'>
+                                <select class="form-control" wire:model='bahan_bakar'>
                                     <option value="premium" selected>Bahan bakar</option>
                                     <option value="premium">Premium</option>
                                     <option value="pertamax">Pertamax</option>
@@ -151,13 +151,13 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Tahun Produksi</label>
+                        <label class="col-sm-3 col-form-label">Tahun Produksi</label>
                         <div class="col-xl-5 col-md-3">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-calendar"></i></span>
                                 </div>
-                                <select class="form-control" wire:model='tahunprod'>
+                                <select class="form-control" wire:model='tahun_produksi'>
                                     <option value="2012" selected>Tahun produksi</option>
                                     {{ $last = date('Y') - 12 }}
                                     {{ $now = date('Y') }}
@@ -175,10 +175,11 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-calendar-week"></i></span>
                                 </div>
-                                <input id="picker-pajak" type="text" wire:model='tglPajak'
-                                    class="form-control col date @error('tglPajak') is-invalid @enderror"
-                                    placeholder="Tanggal Pajak STNK" onchange="Livewire.emit('setDate',this.value)">
-                                @error('tglPajak')
+                                <input id="picker-pajak" type="text" wire:model='tanggal_pajak'
+                                    class="form-control col date @error('tanggal_pajak') is-invalid @enderror"
+                                    placeholder="Tanggal Pajak STNK"
+                                    onchange="Livewire.emit('setDatePajak',this.value)">
+                                @error('tanggal_pajak')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -188,17 +189,17 @@
 
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal STNK</label>
+                        <label class="col-sm-3 col-form-label">Tanggal STNK</label>
                         <div class="col-xl-6 col-md-3">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-calendar-day"></i></span>
                                 </div>
                                 <input id="picker-tanggal-stnk" type="text"
-                                    wire:model='tglStnk'class="form-control col date @error('tglStnk') is-invalid @enderror"
+                                    wire:model='tanggal_stnk'class="form-control col date @error('tanggal_stnk') is-invalid @enderror"
                                     placeholder="Tanggal jatuh tempo STNK"
-                                    onchange="Livewire.emit('setDate',this.value)">
-                                @error('tglStnk')
+                                    onchange="Livewire.emit('setDateStnk',this.value)">
+                                @error('tanggal_stnk')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -207,16 +208,16 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Pemilik</label>
+                        <label class="col-sm-3 col-form-label">Nama Pemilik</label>
                         <div class="col-xl-6 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" wire:model='owner'
-                                    class="form-control col @error('tglStnk') is-invalid @enderror"
+                                <input type="text" wire:model='pemilik'
+                                    class="form-control col @error('pemilik') is-invalid @enderror"
                                     placeholder="Nama pemilik">
-                                @error('owner')
+                                @error('pemilik')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -225,7 +226,7 @@
                         </div>
                     </div>
                     <div class="form-group row ml-1 mb-1">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Keterangan</label>
+                        <label class="col-sm-3 col-form-label">Keterangan</label>
                         <div class="col-xl-8 col-md-4">
                             <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
@@ -246,22 +247,56 @@
                                     <input type="file" wire:model='photo' class="form-control">
                                     {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
                                 </div>
+
+                            </div>
+                            <div class="row" wire:loading.delay>
+                                <div="col-xl-2">
+                                Loading...
+                            </div>
+                            <div class="row">
+                                <div="col-xl-2">
                                 @if ($photo)
-                                    <img class="img-fluid img-thumbnail rounded" src="{{ $photo->temporaryURL() }}"
-                                        alt="">
+                                    <h7>Preview</h7>
+                                    <hr class="hr" />
+                                    <img class="img-thumbnail" style="width: 164px; height: 164px; margin:auto;"
+                                        src="{{ $photo->temporaryURL() }}" alt="">
                                 @endif
-                                <div class="rounded">
-
-                                </div>
-
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
             <div class="card-footer">
                 <button type="submit" wire:click='store' class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
 </div>
+@push('script')
+    <script>
+        Livewire.on('success', data => {
+            toastr["success"](data.pesan, "Notification")
+            toastr.options = {
+                "closeDuration": 2000,
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                onHidden: function() {
+                    window.location.href = '/master/kendaraan';
+                }
+            }
+        })
+    </script>
+@endpush

@@ -11,38 +11,41 @@ class CarInput extends Component
 {
     use WithFileUploads;
 
-    public $nama, $merk, $warna, $jenis, $nopol, $norangka, $nomesin, $bbm, $tahunprod, $tglPajak, $tglStnk, $owner, $keterangan, $photo;
+    public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
+    public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
+    public $pemilik, $keterangan, $photo;
 
-    protected $listeners = ['setDatePajak','setDateStnk'];
+    protected $listeners = ['setDatePajak', 'setDateStnk'];
 
     protected $rules = [
         'nama' => 'required',
         'merk' => 'required',
         'warna' => 'required|max:10',
-        'jenis' => 'required',
-        'nopol' => 'required',
-        'norangka' => 'required',
-        'nomesin' => 'required',
-        'bbm' => 'required',
-        'tahunprod' => 'required',
-        'tglPajak' => 'required',
-        'tglStnk' => 'required',
-        'owner' => 'required',
+        'transmisi' => 'required',
+        'no_pol' => 'required',
+        'no_rangka' => 'required',
+        'no_mesin' => 'required',
+        'bahan_bakar' => 'required',
+        'tahun_produksi' => 'required',
+        'tanggal_pajak' => 'required',
+        'tanggal_stnk' => 'required',
+        'pemilik' => 'required',
+        'photo' => 'image|max:1024|mimes:png,jpg',
     ];
 
     protected $validationAttributes = [
         'nama' => 'nama kendaraan',
         'merk' => 'merk kendaraan',
         'warna' => 'warna kendaraan',
-        'jenis' => 'jenis kendaraan',
-        'nopol' => 'nomor polisi',
-        'norangka' => 'nomor rangka',
-        'nomesin' => 'nomor mesin',
-        'bbm' => 'bahan bakar',
-        'tahunprod' => 'tahun buat',
-        'tglPajak' => 'tanggal pajak jatuh tempo',
-        'tglStnk' => 'tanggal STNK',
-        'owner' => 'nama pemilik',
+        'transmisi' => 'jenis kendaraan',
+        'no_pol' => 'nomor polisi',
+        'no_rangka' => 'nomor rangka',
+        'no_mesin' => 'nomor mesin',
+        'bahan_bakar' => 'bahan bakar',
+        'tahun_produksi' => 'tahun buat',
+        'tanggal_pajak' => 'tanggal pajak jatuh tempo',
+        'tanggal_stnk' => 'tanggal STNK',
+        'pemilik' => 'nama pemilik',
         'photo' => 'photo kendaraan'
     ];
 
@@ -56,28 +59,40 @@ class CarInput extends Component
         return view('livewire.car-input');
     }
 
-    public function setDatePajak($data){
-        $this->tglPajak=$data;
+    public function setDatePajak($data)
+    {
+        $this->tanggal_pajak = $data;
     }
 
-    public function setDateStnk($data){
-        $this->tglStnk=$data;
+    public function setDateStnk($data)
+    {
+        $this->tanggal_stnk = $data;
     }
 
     public function store()
     {
+        $data = [
+            'nama' => $this->nama,
+            'merk' => $this->merk,
+            'warna' => $this->warna,
+            'transmisi' => $this->transmisi,
+            'no_pol' => $this->no_pol,
+            'no_rangka' => $this->no_rangka,
+            'no_mesin' => $this->no_mesin,
+            'bahan_bakar' => $this->bahan_bakar,
+            'tahun_produksi' => $this->tahun_produksi,
+            'tanggal_pajak' => $this->tanggal_pajak,
+            'tanggal_stnk' => $this->tanggal_stnk,
+            'pemilik' => $this->pemilik,
+            'photo' => $this->photo,
+        ];
+        if (!empty($this->photo)) {
+            $this->photo->storeAs('public/images-car');
+        }
         $validated = $this->validate();
-        dd($this->nama,$this->tglStnk);
-        // $this->validate([
-        //     'photo.*' => 'image|max:1024|mimes:png,jpg',
-        // ]);
-
-        // if($this->photo){
-        //     $this->photo->store('images-car');
-        // }
-
-        // Car::create($validated);
-        // $this->reset('nama','merk');
-
+        Car::create($data);
+        // $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
+        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
+        // return redirect()->to('/master/kendaraan');
     }
 }
