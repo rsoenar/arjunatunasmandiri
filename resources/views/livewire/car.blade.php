@@ -30,7 +30,8 @@
             @forelse($cars as $car)
                 <div class="col-xl-2 col-md-2 col-sm-2 gap-2">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ url('img/not-found.png') }}" alt="{{ $car->photo }}">
+                        <img class="card-img-top" src="{{ url('storage/images-car/' . $car->photo) }}"
+                            alt="{{ $car->photo }}">
                         <div class="card-body">
                             <div class="ribbon-wrapper ribbon-lg">
                                 @if ($car->status == 1)

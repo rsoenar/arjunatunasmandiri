@@ -84,7 +84,7 @@ class CarInput extends Component
             'tanggal_pajak' => $this->tanggal_pajak,
             'tanggal_stnk' => $this->tanggal_stnk,
             'pemilik' => $this->pemilik,
-            'photo' => $this->photo,
+            'photo' => $this->photo->hashName(),
         ];
         if (!empty($this->photo)) {
             $this->photo->storeAs('public/images-car');
