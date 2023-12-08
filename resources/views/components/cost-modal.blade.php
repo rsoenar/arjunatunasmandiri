@@ -22,7 +22,6 @@
                             </div>
                         @enderror
                     </div>
-
                 </div>
             </form>
             <div class="modal-footer justify-content-between">

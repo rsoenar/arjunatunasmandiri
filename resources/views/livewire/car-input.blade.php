@@ -263,32 +263,38 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="card-footer">
-                <button type="submit" wire:click='store' class="btn btn-primary">Submit</button>
+                <div class="card-footer">
+                    <button type="button" wire:click='store' class="btn btn-primary">Submit</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 @push('script')
     <script>
         Livewire.on('success', data => {
             toastr["success"](data.pesan, "Notification")
             toastr.options = {
-                "closeDuration": 2000,
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut",
-                onHidden: function() {
-                    window.location.href = '/master/kendaraan';
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                },
+                toastr.options.onHidden = function() {
+                    console.log('goodbye');
                 }
-            }
         })
     </script>
 @endpush
