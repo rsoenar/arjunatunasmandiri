@@ -30,3 +30,11 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script>
+        window.addEventListener('close-modal', event => {
+            $('#car-modal-input').modal('hide')
+        })
+    </script>
+@endpush

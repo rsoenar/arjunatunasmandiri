@@ -20,8 +20,10 @@
     <link rel="stylesheet" href={{ URL::asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}>
     <!-- Toastr -->
     <link rel="stylesheet" href={{ URL::asset('plugins/toastr/toastr.min.css') }}>
-
+    {{-- datepicker --}}
     <link rel="stylesheet" href={{ URL::asset('dist/datepicker/jquery.datetimepicker.css') }} />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 </head>
 

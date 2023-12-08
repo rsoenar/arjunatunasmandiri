@@ -16,10 +16,28 @@ class Car extends Component
 
     public $status = '';
 
+    public $delete_id;
+
+    public $listeners = ['DeleteConfirmed' => 'DeleteCar'];
+
     public function render()
     {
         return view('livewire.car', [
-            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search . '%', 'and','status', 'like', '%' . $this->status . '%')->paginate(4),
+            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search)->paginate(7),
         ]);
+    }
+
+    public function DeleteConfirmation($id)
+    {
+        $this->delete_id = $id;
+        $this->emit('show-delete-confirm');
+    }
+
+    public function DeleteCar()
+    {
+        $car = Kendaraan::where('id', $this->delete_id)->first();
+        $car->delete();
+
+        $this->emit('CarDeleted', ['pesan' => 'Berhasil menghapus data']);
     }
 }

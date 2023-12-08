@@ -7,7 +7,7 @@ use App\Models\Car;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
 
-class CarInput extends Component
+class CarModalInput extends Component
 {
     use WithFileUploads;
 
@@ -56,7 +56,7 @@ class CarInput extends Component
 
     public function render()
     {
-        return view('livewire.car-input');
+        return view('livewire.car-modal-input');
     }
 
     public function setDatePajak($data)
@@ -85,17 +85,17 @@ class CarInput extends Component
             'tanggal_pajak' => $this->tanggal_pajak,
             'tanggal_stnk' => $this->tanggal_stnk,
             'pemilik' => $this->pemilik,
-            'photo' => $this->photo ? $this->photo->hashName() : $this->photo=''
+            'photo' => $this->photo ? $this->photo->hashName() : $this->photo = ''
         ];
 
         if (!empty($this->photo)) {
-            $this->photo->store('images-car','public');
+            $this->photo->store('images-car', 'public');
         }
 
         $validated = $this->validate();
         Car::create($data);
-        // $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
+        $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
         $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
-        // return redirect()->to('/master/kendaraan');
+        $this->dispatchBrowserEvent('close-modal');
     }
 }
