@@ -30,6 +30,7 @@ class CarModalInput extends Component
         'tanggal_pajak' => 'required',
         'tanggal_stnk' => 'required',
         'pemilik' => 'required',
+        'keterangan' => 'nullable',
         'photo' => 'image|max:1024|mimes:png,jpg',
     ];
 
@@ -46,6 +47,7 @@ class CarModalInput extends Component
         'tanggal_pajak' => 'tanggal pajak jatuh tempo',
         'tanggal_stnk' => 'tanggal STNK',
         'pemilik' => 'nama pemilik',
+        'keterangan' => 'keterangan',
         'photo' => 'photo kendaraan'
     ];
 
@@ -85,6 +87,7 @@ class CarModalInput extends Component
             'tanggal_pajak' => $this->tanggal_pajak,
             'tanggal_stnk' => $this->tanggal_stnk,
             'pemilik' => $this->pemilik,
+            'keterangan' => $this->keterangan,
             'photo' => $this->photo ? $this->photo->hashName() : $this->photo = ''
         ];
 
