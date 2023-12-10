@@ -96,7 +96,8 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('trans-service') }}"
+                            class="nav-link {{ Request::segment(2) === 'trans-service' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Service</p>
                         </a>

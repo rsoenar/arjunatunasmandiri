@@ -24,7 +24,7 @@
     <link rel="stylesheet" href={{ URL::asset('dist/datepicker/jquery.datetimepicker.css') }} />
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
+    {{-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" /> --}}
 </head>
 
 <body class="hold-transition sidebar-mini ">
@@ -127,12 +127,8 @@
             <!-- Main content -->
 
             @livewireStyles
-
             @livewireScripts
-
             @yield('main-content')
-
-            @stack('script')
 
             <!-- /.content -->
         </div>
@@ -154,6 +150,10 @@
     <!-- jQuery -->
     <script src={{ URL::asset('plugins/jquery/jquery.min.js') }}></script>
     <!-- Bootstrap 4 -->
+    {{--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+
     <script src={{ URL::asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}></script>
     <!-- AdminLTE App -->
     <script src={{ URL::asset('dist/js/adminlte.min.js') }}></script>
@@ -182,6 +182,9 @@
             bsCustomFileInput.init();
         })
     </script>
+
+    @stack('script')
+
 </body>
 
 </html>

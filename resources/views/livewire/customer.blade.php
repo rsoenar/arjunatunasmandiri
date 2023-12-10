@@ -3,9 +3,7 @@
         <div class="card-header col card-header text-left">
             <div class="row align-items-right">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-order">
-                        Tambah Data
-                    </button>
+                    <a href="{{ route('customer-input') }}" class="btn btn-default">Tambah Data</a>
                 </div>
                 <div class="col-md-3 offset-md-6"><label class="text-right g-col-6">
                         <input type="search" class="form-control form-control-md " wire:model="search"

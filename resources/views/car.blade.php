@@ -33,8 +33,8 @@
 
 @push('script')
     <script>
-        window.addEventListener('close-modal', event => {
-            $('#car-modal-input').modal('hide')
-        })
+        @if (Session::has('Success'))
+            toastr.success('Berhasil create data kendaraan baru', 'Notification')
+        @endif
     </script>
 @endpush

@@ -3,9 +3,7 @@
         <div class="card-header col card-header text-left">
             <div class="row align-items-right">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-master-order">
-                        Tambah Data
-                    </button>
+                    <a href="{{ route('driver-input') }}" class="btn btn-default">Tambah Data</a>
                 </div>
                 <div class="col-md-3 offset-md-6"><label class="text-right g-col-6">
                         <input type="search" class="form-control form-control-md " wire:model="search"
@@ -20,13 +18,13 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Cust.</th>
-                            <th>Project</th>
-                            <th>Assign Date</th>
-                            <th>Team</th>
-                            <th>Priority</th>
+                            <th>Foto.</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>No Identitas</th>
+                            <th>Telepon</th>
+                            <th>Email</th>
                             <th>Status</th>
-                            <th>Edit</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
@@ -376,3 +374,11 @@
         </div>
     </div>
 </div>
+
+@push('script')
+    <script>
+        @if (Session::has('Message'))
+            toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+        @endif
+    </script>
+@endpush

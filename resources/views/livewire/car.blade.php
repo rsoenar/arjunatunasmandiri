@@ -3,9 +3,10 @@
         <div class="card-header col card-header text-left">
             <div class="row">
                 <div class="col-md-6 col-xl-6">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#car-modal-input">
+                    {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#car-modal-input">
                         Tambah Data
-                    </button>
+                    </button> --}}
+                    <a href="{{ route('car-input') }}" class="btn btn-default">Tambah Data</a>
                 </div>
 
                 <div class="col-md-6 col-xl-6 d-flex justify-content-end">
@@ -20,7 +21,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <div class="table-responsive" id="proTeamScroll" tabindex="2" outline: none;">
+            <div class="table-r esponsive" id="proTeamScroll" tabindex="2" outline: none;">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -76,19 +77,22 @@
                                 <td style="width:1px; white-space:nowrap;">
                                     <a role="button" class="btn btn-danger btn-xs" href="javascript:void(0)"
                                         wire:click.prevent='DeleteConfirmation({{ $car->id }})'>Delete</a>
+                                    <a type="button" role="button" class="btn btn-warning btn-xs"
+                                        href="javascript:void(0)" data-toggle="modal" data-target="#car-modal-edit"
+                                        wire:click.prevent='editCar({{ $car->id }})'>Edit</a>
                                 </td>
 
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8">Not Found Data</td>
+                                <td colspan="8" class="text-center">Not Found Data</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
-        @livewire('car-modal-input')
+        @include('livewire.car-modal')
         <!-- /.card-body -->
         <div class="card-footer clearfix">
             <ul class="pagination pagination-sm m-0 float-right">
@@ -97,6 +101,7 @@
         </div>
     </div>
 </div>
+
 
 @push('script')
     <script>
@@ -130,10 +135,22 @@
     </script>
 @endpush
 
-@push('script')
+{{-- @push('script')
     <script>
         window.addEventListener('close-modal', event => {
             $('#car-modal-input').modal('hide')
         })
+
+        window.addEventListener('close-modal', event => {
+            $('#car-modal-edit').modal('hide')
+        })
+    </script>
+@endpush --}}
+
+@push('script')
+    <script>
+        @if (Session::has('success'))
+            toast.success(Session::get('success'))
+        @endif
     </script>
 @endpush
