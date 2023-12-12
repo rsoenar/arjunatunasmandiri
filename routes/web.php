@@ -24,8 +24,8 @@ Route::get('/dashboard', function () {
 });
 
 Route::group(['prefix' => 'master/'], function () {
-    Route::get('pelanggan', function ()    {
-         return view('customer');
+    Route::get('pelanggan', function () {
+        return view('customer');
     });
     Route::get('supir', function () {
         return view('driver');
@@ -37,26 +37,26 @@ Route::group(['prefix' => 'master/'], function () {
     Route::get('master-order', [Order_type::class, 'index'])->name('master-order');
 });
 
-Route::group(['prefix' => 'master/kendaraan/'],function(){
-    Route::get('input',function(){
+Route::group(['prefix' => 'master/kendaraan/'], function () {
+    Route::get('input', function () {
         return view('car-input');
     })->name('car-input');
 });
 
-Route::group(['prefix' => 'master/supir/'],function(){
-    Route::get('input',function(){
+Route::group(['prefix' => 'master/supir/'], function () {
+    Route::get('input', function () {
         return view('driver-input');
     })->name('driver-input');
 });
 
-Route::group(['prefix' => 'master/pelanggan/'],function(){
-    Route::get('input',function(){
+Route::group(['prefix' => 'master/pelanggan/'], function () {
+    Route::get('input', function () {
         return view('customer-input');
     })->name('customer-input');
 });
 
-Route::group(['prefix' => "transaksi"],function(){
-    Route::get('trans-service',function(){
+Route::group(['prefix' => "transaksi"], function () {
+    Route::get('trans-service', function () {
         return view('trans-service');
     })->name('trans-service');
 });

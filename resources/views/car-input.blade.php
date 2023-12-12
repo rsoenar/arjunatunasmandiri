@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    @livewire('car-input')
+                    <livewire:car-input />
                 </div>
             </div>
         </div>

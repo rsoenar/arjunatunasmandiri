@@ -47,28 +47,28 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ url('/master/kendaraan') }}"
+                        <a href="{{ url('/master/kendaraan') }}" wire:navigate
                             class="nav-link {{ Request::segment(2) === 'kendaraan' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Kendaraan</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/master/supir') }}"
+                        <a href="{{ url('/master/supir') }}" wire:navigate
                             class="nav-link {{ Request::segment(2) === 'supir' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Supir</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/master/pelanggan') }}"
+                        <a href="{{ url('/master/pelanggan') }}" wire:navigate
                             class="nav-link {{ Request::segment(2) === 'pelanggan' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Pelanggan</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('master-biaya') }}"
+                        <a href="{{ route('master-biaya') }}" wire:navigate
                             class="nav-link {{ Request::segment(2) === 'master-biaya' ? 'active' : null }}"
                             wire:navigate>
                             <i class="far fa-circle nav-icon"></i>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('master-order') }}"
+                        <a href="{{ route('master-order') }}" wire:navigate
                             class="nav-link {{ Request::segment(2) === 'master-order' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Order</p>

@@ -21,11 +21,18 @@ class Car extends Component
 
     public $delete_id;
 
-    public $listeners = ['DeleteConfirmed' => 'DeleteCar','setDatePajak', 'setDateStnk'];
+    public $listeners = ['DeleteConfirmed' => 'DeleteCar', 'setDatePajak', 'setDateStnk'];
 
-    public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
+    public $id, $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
     public $pemilik, $keterangan, $photo;
+
+    public $readyToLoad = false;
+
+    public function placeholder()
+    {
+        return view('placeholder.table');
+    }
 
     public function render()
     {
@@ -34,7 +41,7 @@ class Car extends Component
         ]);
     }
 
-     protected $rules = [
+    protected $rules = [
         'nama' => 'required',
         'merk' => 'required',
         'warna' => 'required|max:10',
@@ -109,14 +116,15 @@ class Car extends Component
         $validated = $this->validate();
         Kendaraan::create($data);
         $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
-        $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('success', ['pesan' => 'Berhasil menyimpan data']);
+        // $this->emit('success', ['pesan' => 'Berhasil menyimpan data']);
+        // $this->dispatchBrowserEvent('close-modal');
     }
 
     public function DeleteConfirmation(int $id)
     {
         $this->delete_id = $id;
-        $this->emit('show-delete-confirm');
+        $this->dispatch('show-delete-confirm');
     }
 
     public function DeleteCar()
@@ -124,14 +132,14 @@ class Car extends Component
         $car = Kendaraan::where('id', $this->delete_id)->first();
         $car->delete();
 
-        $this->emit('CarDeleted', ['pesan' => 'Berhasil menghapus data']);
+        $this->dispatch('CarDeleted', ['pesan' => 'Berhasil menghapus data']);
     }
 
     public function editCar(int $id)
     {
         $car = Kendaraan::find($id);
 
-        if($car){
+        if ($car) {
             $this->id = $car->id;
             $this->nama =  $car->nama;
             $this->merk = $car->merk;

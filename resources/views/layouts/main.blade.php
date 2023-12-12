@@ -25,6 +25,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     {{-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" /> --}}
+
+    @livewireStyles
 </head>
 
 <body class="hold-transition sidebar-mini ">
@@ -125,11 +127,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
-
-            @livewireStyles
-            @livewireScripts
             @yield('main-content')
-
             <!-- /.content -->
         </div>
 
@@ -182,7 +180,7 @@
             bsCustomFileInput.init();
         })
     </script>
-
+    @livewireScripts
     @stack('script')
 
 </body>

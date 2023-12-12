@@ -92,7 +92,6 @@
                 </table>
             </div>
         </div>
-        @include('livewire.car-modal')
         <!-- /.card-body -->
         <div class="card-footer clearfix">
             <ul class="pagination pagination-sm m-0 float-right">
@@ -116,7 +115,7 @@
                 confirmButtonText: "Ya Delete !"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('DeleteConfirmed')
+                    Livewire.dispatch('DeleteConfirmed')
                 }
             })
         });
@@ -134,18 +133,6 @@
         })
     </script>
 @endpush
-
-{{-- @push('script')
-    <script>
-        window.addEventListener('close-modal', event => {
-            $('#car-modal-input').modal('hide')
-        })
-
-        window.addEventListener('close-modal', event => {
-            $('#car-modal-edit').modal('hide')
-        })
-    </script>
-@endpush --}}
 
 @push('script')
     <script>
