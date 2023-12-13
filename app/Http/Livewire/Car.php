@@ -37,7 +37,7 @@ class Car extends Component
     public function render()
     {
         return view('livewire.car', [
-            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search)->paginate(7),
+            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search)->paginate(5),
         ]);
     }
 

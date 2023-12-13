@@ -72,7 +72,6 @@ class CarInput extends Component
 
     public function store()
     {
-        dd($this->tanggal_pajak);
         $this->validate();
         $data = [
             'nama' => $this->nama,

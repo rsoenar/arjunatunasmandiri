@@ -3,15 +3,15 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use App\Models\Driver as Supir;
 
 class Driver extends Component
 {
 
-    protected $Listeners=['send'];
+    protected $Listeners = ['send'];
 
     public function render()
     {
-        return view('livewire.driver');
+        return view('livewire.driver', ['drivers' => Supir::paginate(3)]);
     }
 }

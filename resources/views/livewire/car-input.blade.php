@@ -269,7 +269,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="/master/kendaraan" type="button" class="btn btn-default">Close</a>
                 <button type="button" wire:click='store' class="btn btn-primary">Save changes</button>
             </div>
         </form>
