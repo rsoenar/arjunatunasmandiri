@@ -1,14 +1,16 @@
-<div>
     <div class="card">
         <div class="card-header col card-header text-left">
             <div class="row align-items-right">
-                <div class="col-md-3">
+                <div class="col-md-6 col-xl-6">
                     <a href="{{ route('driver-input') }}" class="btn btn-default">Tambah Data</a>
                 </div>
-                <div class="col-md-3 offset-md-6"><label class="text-right g-col-6">
-                        <input type="search" class="form-control form-control-md " wire:model="search"
-                            placeholder="Search">
-                    </label>
+                <div class="col-md-6 col-xl-6 d-flex justify-content-end">
+                    <div class="row gap-0">
+                        <div class="col-xl-12 col-md-12">
+                            <input type="search" class="form-control form-control-md" wire:model="search"
+                                placeholder="Search">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -373,12 +375,10 @@
             </div>
         </div>
     </div>
-</div>
-
-@push('script')
-    <script>
-        @if (Session::has('Message'))
-            toastr.success('Have fun storming the castle!', 'Miracle Max Says')
-        @endif
-    </script>
-@endpush
+    @push('script')
+        <script>
+            @if (Session::has('Message'))
+                toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+            @endif
+        </script>
+    @endpush

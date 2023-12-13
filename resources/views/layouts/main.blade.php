@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     {{-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" /> --}}
 
-    @livewireStyles
+
 </head>
 
 <body class="hold-transition sidebar-mini ">
@@ -127,7 +127,9 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
+            @livewireStyles
             @yield('main-content')
+            @livewireScripts
             <!-- /.content -->
         </div>
 
@@ -165,8 +167,6 @@
     <!-- bs-custom-file-input -->
     <script src={{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}></script>
     <script>
-        // $.widget.bridge('uibutton', $.ui.button)
-        // picker on car input form
         jQuery('.date').datetimepicker({
             format: 'Y-m-d',
             formatDate: 'Y-m-d',
@@ -174,13 +174,7 @@
             $('.date').datetimepicker('hide');
         });
     </script>
-    <script>
-        // $.widget.bridge('uibutton', $.ui.button)
-        $(function() {
-            bsCustomFileInput.init();
-        })
-    </script>
-    @livewireScripts
+
     @stack('script')
 
 </body>

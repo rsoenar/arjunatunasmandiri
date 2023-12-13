@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Car;
+use Livewire\Attributes\On;
 
 class CarInput extends Component
 {
@@ -13,8 +14,6 @@ class CarInput extends Component
     public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
     public $pemilik, $keterangan, $photo;
-
-    public $listeners = ['DeleteConfirmed' => 'DeleteCar','setDatePajak', 'setDateStnk'];
 
     protected $rules = [
         'nama' => 'required',
@@ -60,18 +59,21 @@ class CarInput extends Component
         return view('livewire.car-input');
     }
 
+    #[On('setDatePajak')]
     public function setDatePajak($data)
     {
         $this->tanggal_pajak = $data;
     }
-
+    #[On('setDateStnk')]
     public function setDateStnk($data)
     {
         $this->tanggal_stnk = $data;
     }
 
-     public function store()
+    public function store()
     {
+        dd($this->tanggal_pajak);
+        $this->validate();
         $data = [
             'nama' => $this->nama,
             'merk' => $this->merk,
@@ -92,10 +94,8 @@ class CarInput extends Component
         if (!empty($this->photo)) {
             $this->photo->store('images-car', 'public');
         }
-
-        $validated = $this->validate();
         Car::create($data);
         $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
-        return redirect()->to('/master/kendaraan')->with('Success','Berhasil disimpan');
+        return redirect()->to('/master/kendaraan')->with('Success', 'Berhasil disimpan');
     }
 }
