@@ -135,18 +135,6 @@
     </script>
 @endpush
 
-{{-- @push('script')
-    <script>
-        window.addEventListener('close-modal', event => {
-            $('#car-modal-input').modal('hide')
-        })
-
-        window.addEventListener('close-modal', event => {
-            $('#car-modal-edit').modal('hide')
-        })
-    </script>
-@endpush --}}
-
 @push('script')
     <script>
         @if (Session::has('success'))

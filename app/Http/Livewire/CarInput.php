@@ -14,7 +14,7 @@ class CarInput extends Component
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
     public $pemilik, $keterangan, $photo;
 
-    public $listeners = ['DeleteConfirmed' => 'DeleteCar','setDatePajak', 'setDateStnk'];
+    public $listeners = ['DeleteConfirmed' => 'DeleteCar', 'setDatePajak', 'setDateStnk'];
 
     protected $rules = [
         'nama' => 'required',
@@ -70,8 +70,10 @@ class CarInput extends Component
         $this->tanggal_stnk = $data;
     }
 
-     public function store()
+    public function store()
     {
+        $this->validate();
+
         $data = [
             'nama' => $this->nama,
             'merk' => $this->merk,
@@ -92,10 +94,8 @@ class CarInput extends Component
         if (!empty($this->photo)) {
             $this->photo->store('images-car', 'public');
         }
-
-        $validated = $this->validate();
         Car::create($data);
         $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
-        return redirect()->to('/master/kendaraan')->with('Success','Berhasil disimpan');
+        return redirect()->to('/master/kendaraan')->with('Success', 'Berhasil disimpan');
     }
 }

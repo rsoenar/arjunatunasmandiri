@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore.self>
     <div class="card card-default">
         <div class="card-header">
             <h3 class="card-title">Form create kendaraan</h3>
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" wire:loading.delay>
+                    {{-- <div class="row" wire:loading.delay>
                         Loading...
                     </div>
                     <div class="form-group">
@@ -163,7 +163,7 @@
                                     src="{{ $photo->temporaryURL() }}" alt="">
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- /.col -->
             </div>

@@ -21,7 +21,7 @@ class Car extends Component
 
     public $delete_id;
 
-    public $listeners = ['DeleteConfirmed' => 'DeleteCar','setDatePajak', 'setDateStnk'];
+    public $listeners = ['DeleteConfirmed' => 'DeleteCar', 'setDatePajak', 'setDateStnk'];
 
     public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
@@ -30,11 +30,11 @@ class Car extends Component
     public function render()
     {
         return view('livewire.car', [
-            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search)->paginate(7),
+            'cars' => Kendaraan::where('nama', 'like', '%' . $this->search)->paginate(5),
         ]);
     }
 
-     protected $rules = [
+    protected $rules = [
         'nama' => 'required',
         'merk' => 'required',
         'warna' => 'required|max:10',
@@ -131,7 +131,7 @@ class Car extends Component
     {
         $car = Kendaraan::find($id);
 
-        if($car){
+        if ($car) {
             $this->id = $car->id;
             $this->nama =  $car->nama;
             $this->merk = $car->merk;

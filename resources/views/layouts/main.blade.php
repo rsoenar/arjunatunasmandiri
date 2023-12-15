@@ -125,14 +125,13 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Main content -->
-
             @livewireStyles
-            @livewireScripts
+
             @yield('main-content')
 
+            @livewireScripts
             <!-- /.content -->
         </div>
-
         <!-- footer -->
         @include('footer')
         <!-- end footer -->
