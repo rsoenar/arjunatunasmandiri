@@ -7,7 +7,7 @@
             <div class="col-md-6 col-xl-6 d-flex justify-content-end">
                 <div class="row gap-0">
                     <div class="col-xl-12 col-md-12">
-                        <input type="search" class="form-control form-control-md" wire:model="search"
+                        <input type="search" class="form-control form-control-md" wire:model.live="search"
                             placeholder="Search">
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 </thead>
                 <tbody>
                     @forelse($cars as $car)
-                        <tr>
+                        <tr wire:key={{ $car->id }}>
                             <td class="table-img"><img src="{{ URL::asset('storage/images-car/' . $car->photo) }}"
                                     alt="">
                             </td>
@@ -73,8 +73,7 @@
                                 <a role="button" class="btn btn-danger btn-xs" href="javascript:void(0)"
                                     wire:click.prevent='DeleteConfirmation({{ $car->id }})'>Delete</a>
                                 <a type="button" role="button" class="btn btn-warning btn-xs"
-                                    href="javascript:void(0)" data-toggle="modal" data-target="#car-modal-edit"
-                                    wire:click.prevent='editCar({{ $car->id }})'>Edit</a>
+                                    href="{{ route('car-edit', $car->id) }}" wire:navigate>Edit</a>
                             </td>
 
                         </tr>
@@ -124,13 +123,5 @@
                 icon: "success"
             });
         })
-    </script>
-@endpush
-
-@push('script')
-    <script>
-        @if (Session::has('success'))
-            toast.success(Session::get('success'))
-        @endif
     </script>
 @endpush

@@ -128,8 +128,9 @@
         <div class="content-wrapper">
             <!-- Main content -->
             @livewireStyles
-            @yield('main-content')
             @livewireScripts
+            @yield('main-content')
+
             <!-- /.content -->
         </div>
 

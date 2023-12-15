@@ -38,3 +38,11 @@
         @endif
     </script>
 @endpush
+
+@push('script')
+    <script>
+        @if (Session::has('Update'))
+            toastr.success('Berhasil merubah data kendaraan', 'Notification')
+        @endif
+    </script>
+@endpush

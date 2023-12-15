@@ -33,6 +33,7 @@ Route::group(['prefix' => 'master/'], function () {
     Route::get('kendaraan', function () {
         return view('car');
     });
+
     Route::get('master-biaya', [Cost_type::class, 'index'])->name('master-biaya');
     Route::get('master-order', [Order_type::class, 'index'])->name('master-order');
 });
@@ -41,6 +42,10 @@ Route::group(['prefix' => 'master/kendaraan/'], function () {
     Route::get('input', function () {
         return view('car-input');
     })->name('car-input');
+
+    Route::get('/{id}/edit', function () {
+        return view('car-edit');
+    })->name('car-edit');
 });
 
 Route::group(['prefix' => 'master/supir/'], function () {

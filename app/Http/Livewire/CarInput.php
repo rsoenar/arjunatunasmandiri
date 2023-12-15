@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Car;
-use Livewire\Attributes\On;
 
 class CarInput extends Component
 {
@@ -14,6 +13,8 @@ class CarInput extends Component
     public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
     public $pemilik, $keterangan, $photo;
+
+    public $listeners = ['DeleteConfirmed' => 'DeleteCar', 'setDatePajak', 'setDateStnk'];
 
     protected $rules = [
         'nama' => 'required',
@@ -29,7 +30,6 @@ class CarInput extends Component
         'tanggal_stnk' => 'required',
         'pemilik' => 'required',
         'keterangan' => 'nullable',
-        'photo' => 'image|max:1024|mimes:png,jpg',
     ];
 
     protected $validationAttributes = [
@@ -59,12 +59,11 @@ class CarInput extends Component
         return view('livewire.car-input');
     }
 
-    #[On('setDatePajak')]
     public function setDatePajak($data)
     {
         $this->tanggal_pajak = $data;
     }
-    #[On('setDateStnk')]
+
     public function setDateStnk($data)
     {
         $this->tanggal_stnk = $data;
@@ -73,6 +72,7 @@ class CarInput extends Component
     public function store()
     {
         $this->validate();
+
         $data = [
             'nama' => $this->nama,
             'merk' => $this->merk,
@@ -87,14 +87,16 @@ class CarInput extends Component
             'tanggal_stnk' => $this->tanggal_stnk,
             'pemilik' => $this->pemilik,
             'keterangan' => $this->keterangan,
-            'photo' => $this->photo ? $this->photo->hashName() : $this->photo = ''
+            'photo' => !empty($this->photo) ? $this->photo->hashName() : $this->photo = ''
         ];
 
         if (!empty($this->photo)) {
             $this->photo->store('images-car', 'public');
         }
+
         Car::create($data);
-        $this->reset('nama', 'merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
+
+        // $this->reset('nama', ' merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
         return redirect()->to('/master/kendaraan')->with('Success', 'Berhasil disimpan');
     }
 }

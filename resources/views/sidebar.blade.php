@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('master-biaya') }}" wire:navigate
+                        <a href="{{ route('master-biaya') }}"
                             class="nav-link {{ Request::segment(2) === 'master-biaya' ? 'active' : null }}"
                             wire:navigate>
                             <i class="far fa-circle nav-icon"></i>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('master-order') }}" wire:navigate
+                        <a href="{{ route('master-order') }}"
                             class="nav-link {{ Request::segment(2) === 'master-order' ? 'active' : null }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Master Order</p>

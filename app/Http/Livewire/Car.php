@@ -23,7 +23,7 @@ class Car extends Component
 
     public $listeners = ['DeleteConfirmed' => 'DeleteCar', 'setDatePajak', 'setDateStnk'];
 
-    public $id, $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
+    public $nama, $merk, $warna, $transmisi = '', $no_pol, $no_rangka;
     public $no_mesin, $bahan_bakar = '', $tahun_produksi = '', $tanggal_pajak, $tanggal_stnk;
     public $pemilik, $keterangan, $photo;
 
@@ -133,27 +133,5 @@ class Car extends Component
         $car->delete();
 
         $this->dispatch('CarDeleted', ['pesan' => 'Berhasil menghapus data']);
-    }
-
-    public function editCar(int $id)
-    {
-        $car = Kendaraan::find($id);
-
-        if ($car) {
-            $this->id = $car->id;
-            $this->nama =  $car->nama;
-            $this->merk = $car->merk;
-            $this->warna = $car->warna;
-            $this->transmisi = $car->transmisi;
-            $this->no_pol = $car->no_pol;
-            $this->no_rangka = $car->no_rangka;
-            $this->no_mesin = $car->no_mesin;
-            $this->bahan_bakar = $car->bahan_bakar;
-            $this->tahun_produksi = $car->tahun_produksi;
-            $this->tanggal_pajak = $car->tanggal_pajak;
-            $this->tanggal_stnk = $car->tanggal_stnk;
-            $this->pemilik = $car->pimilik;
-            $this->keterangan = $car->keterangan;
-        }
     }
 }

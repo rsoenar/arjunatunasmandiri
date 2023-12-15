@@ -12,7 +12,7 @@
             </div>
         </div>
         <!-- /.card-header -->
-        <form wire:submit="store">
+        <form wire:submit="updateCar">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-2">
@@ -98,8 +98,6 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-5">
                         <div class="form-group">
                             <label class="col-form-label">Warna</label>
                             <div class="input-group mb-3 ml-6">
@@ -116,6 +114,9 @@
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-5">
+
                         <div class="form-group">
                             <label class="col-form-label">Pemilik</label>
                             <div class="input-group mb-3 ml-6">
@@ -145,23 +146,28 @@
                         <div class="form-group">
                             <label class="col-form-label">Foto Kendaraan</label>
                             <div class="input-group mb-3 ml-6">
+                                <img src="{{ URL::asset('storage/images-car/' . $this->photo) }}" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Edit Foto Kendaraan</label>
+                            <div class="input-group mb-3 ml-6">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text "><i class="fa fa-image"></i></span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" wire:model.live='photo' class="form-control">
-                                    {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
+                                    <input type="file" wire:model.live='newphoto' class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row" wire:loading.delay>
                             Loading...
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" wire:loading.remove>
                             <div class="input-group mb-3 ml-6">
-                                @if ($photo)
+                                @if ($newphoto)
                                     <img class="img-thumbnail" style="width: 180px; height: 160px; margin:auto;"
-                                        src="{{ $photo->temporaryURL() }}" alt="">
+                                        src="{{ $newphoto->temporaryURL() }}" alt="">
                                 @endif
                             </div>
                         </div>
@@ -269,8 +275,8 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <a href="/master/kendaraan" type="button" class="btn btn-default">Close</a>
-                <button type="button" wire:click='store' class="btn btn-primary">Save changes</button>
+                <a href="/master/kendaraan" wire:navigate type="button" class="btn btn-default">Close</a>
+                <button type="button" wire:click='updateCar' class="btn btn-primary">Save changes</button>
             </div>
         </form>
     </div>
