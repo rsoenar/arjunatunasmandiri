@@ -1,7 +1,7 @@
 <div wire:ignore.self>
     <div class="card card-default">
         <div class="card-header">
-            <h3 class="card-title">Form tambah data supir</h3>
+            <h3 class="card-title">Form edit data supir</h3>
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -12,7 +12,6 @@
             </div>
         </div>
         <!-- /.card-header -->
-
         <div class="card-body">
             <div class="row">
                 <div class="col-md-2">
@@ -52,7 +51,6 @@
                             @enderror
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
@@ -80,6 +78,30 @@
                         </div>
                     </div>
 
+                </div>
+                <!-- /.col -->
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Status Supir</label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-form-label">Status</label>
+                        <div class="input-group mb-3 ml-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text "><i class="fa fa-cog"></i></span>
+                            </div>
+                            <select class="form-control" wire:model.live='status'>
+                                <option value="1">Status</option>
+                                <option value="1" {{ $this->status == 1 ? 'selected' : '' }}>Aktif</option>
+                                <option value="2" {{ $this->status == 2 ? 'selected' : '' }}>Non Aktif</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.col -->
             </div>
@@ -123,6 +145,29 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Edit Foto Kendaraan</label>
+                        <div class="input-group mb-3 ml-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text "><i class="fa fa-image"></i></span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" wire:model.live='newphoto' class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" wire:loading.delay>
+                        Loading...
+                    </div>
+                    <div class="form-group" wire:loading.remove>
+                        <div class="input-group mb-3 ml-6">
+                            @if ($newphoto)
+                                <img class="img-thumbnail" style="width: 180px; height: 160px; margin:auto;"
+                                    src="{{ $newphoto->temporaryURL() }}" alt="">
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
@@ -142,28 +187,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label">Foto</label>
-                        <div class="input-group mb-3 ml-6">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text "><i class="fa fa-image"></i></span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" wire:model='photo_url' class="form-control">
-                            </div>
-                        </div>
-                        <div class="row" wire:loading.delay>
-                            Loading...
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group mb-3 ml-6 justify-content-left">
-                                @if ($photo_url)
-                                    <img class="img-thumbnail" style="width: 180px; height: 160px; margin:auto;"
-                                        src="{{ $photo_url->temporaryURL() }}" alt="">
-                                @endif
-                            </div>
+                        <label class="col-form-label">Foto Supir</label>
+                        <div class="input-group mb-3 ml-6 center">
+                            <img class="img-thumbnail" style="width: 180px; height: 160px; margin:auto;"
+                                src="{{ URL::asset('storage/images-supir/' . $this->photo_url) }}" alt="No Photo" />
+                            <input type="hidden" wire:model.live='photo_url' class="form-control col">
                         </div>
                     </div>
-
                 </div>
                 <!-- /.col -->
             </div>
@@ -171,7 +201,7 @@
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" wire:click.prevent='store' class="btn btn-primary">Save changes</button>
+            <button type="button" wire:click.prevent='updateDriver' class="btn btn-primary">Save changes</button>
         </div>
     </div>
 </div>

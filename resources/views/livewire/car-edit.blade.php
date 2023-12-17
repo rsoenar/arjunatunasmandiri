@@ -146,7 +146,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Foto Kendaraan</label>
                             <div class="input-group mb-3 ml-6">
-                                <img src="{{ URL::asset('storage/images-car/' . $this->photo) }}" />
+                                <img src="{{ URL::asset('storage/images-car/' . $this->photo) }}" alt="No Photo" />
                             </div>
                         </div>
                         <div class="form-group">

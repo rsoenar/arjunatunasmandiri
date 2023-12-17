@@ -11,4 +11,8 @@ class Driver extends Model
 
     protected $fillable = [];
     protected $guarded = [];
+
+    protected $table = "Drivers";
+
+    public $timestamps = true;
 }

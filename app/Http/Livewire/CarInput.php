@@ -71,6 +71,7 @@ class CarInput extends Component
 
     public function store()
     {
+        //dd($this->tanggal_pajak);
         $this->validate();
 
         $data = [
@@ -95,8 +96,6 @@ class CarInput extends Component
         }
 
         Car::create($data);
-
-        // $this->reset('nama', ' merk', 'warna', 'transmisi', 'no_pol', 'no_mesin', 'no_rangka', 'bahan_bakar', 'tahun_produksi', 'tanggal_pajak', 'tanggal_stnk', 'pemilik', 'photo');
         return redirect()->to('/master/kendaraan')->with('Success', 'Berhasil disimpan');
     }
 }

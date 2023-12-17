@@ -74,6 +74,8 @@
                                     wire:click.prevent='DeleteConfirmation({{ $car->id }})'>Delete</a>
                                 <a type="button" role="button" class="btn btn-warning btn-xs"
                                     href="{{ route('car-edit', $car->id) }}" wire:navigate>Edit</a>
+                                <a type="button" role="button" class="btn btn-primary btn-xs"
+                                    href="{{ route('car-detail', $car->id) }}" wire:navigate>View</a>
                             </td>
 
                         </tr>

@@ -46,12 +46,20 @@ Route::group(['prefix' => 'master/kendaraan/'], function () {
     Route::get('/{id}/edit', function () {
         return view('car-edit');
     })->name('car-edit');
+
+     Route::get('/{id}/detail', function () {
+        return view('livewire.car-detail');
+    })->name('car-detail');
 });
 
 Route::group(['prefix' => 'master/supir/'], function () {
     Route::get('input', function () {
         return view('driver-input');
     })->name('driver-input');
+
+    Route::get('/{id}/edit', function () {
+        return view('driver-edit');
+    })->name('driver-edit');
 });
 
 Route::group(['prefix' => 'master/pelanggan/'], function () {
